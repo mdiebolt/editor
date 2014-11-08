@@ -41,7 +41,6 @@ auto-close the window.
               sandbox.document.close()
             , (error) ->
               sandbox.close()
-              console.log error
               throw error
           )
 
