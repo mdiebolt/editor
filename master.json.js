@@ -74,7 +74,7 @@ window["mdiebolt/editor:master"]({
     },
     "templates/editor.haml.md": {
       "path": "templates/editor.haml.md",
-      "content": "The main editor template renders all the other sub-templates.\n\n    %main.main\n      = require(\"./actions\") actions: @actions, issues: @issues, github: @github, repository: @repository\n      = require(\"./filetree\") @filetree\n      -# TODO: Figure out why we can't just add the notifications view directly\n      = @notifications.view.children[0]\n",
+      "content": "The main editor template renders all the other sub-templates.\n\n    .main\n      = require(\"./actions\") actions: @actions, issues: @issues, github: @github, repository: @repository\n      = require(\"./filetree\") @filetree\n      -# TODO: Figure out why we can't just add the notifications view directly\n      = @notifications.view.children[0]\n",
       "mode": "100644",
       "type": "blob"
     },
@@ -155,7 +155,7 @@ window["mdiebolt/editor:master"]({
     },
     "templates/editor": {
       "path": "templates/editor",
-      "content": "module.exports = function(data) {\n  \"use strict\";\n  return (function() {\n    var __root;\n    __root = require(\"/lib/hamlet-runtime\")(this);\n    __root.buffer(__root.element(\"main\", this, {\n      \"class\": [\"main\"]\n    }, function(__root) {\n      __root.buffer(require(\"./actions\")({\n        actions: this.actions,\n        issues: this.issues,\n        github: this.github,\n        repository: this.repository\n      }));\n      __root.buffer(require(\"./filetree\")(this.filetree));\n      __root.buffer(this.notifications.view.children[0]);\n    }));\n    return __root.root;\n  }).call(data);\n};\n",
+      "content": "module.exports = function(data) {\n  \"use strict\";\n  return (function() {\n    var __root;\n    __root = require(\"/lib/hamlet-runtime\")(this);\n    __root.buffer(__root.element(\"div\", this, {\n      \"class\": [\"main\"]\n    }, function(__root) {\n      __root.buffer(require(\"./actions\")({\n        actions: this.actions,\n        issues: this.issues,\n        github: this.github,\n        repository: this.repository\n      }));\n      __root.buffer(require(\"./filetree\")(this.filetree));\n      __root.buffer(this.notifications.view.children[0]);\n    }));\n    return __root.root;\n  }).call(data);\n};\n",
       "type": "blob"
     },
     "templates/filetree": {
