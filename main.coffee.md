@@ -273,7 +273,7 @@ Templates
     filetree.selectedFile.observe (file) ->
       return if file.binary?()
 
-      root = $root.children(".main")
+      root = $root.find(".editor")
       root.find("iframe").hide()
 
       if file.editor
