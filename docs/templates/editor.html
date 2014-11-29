@@ -21,7 +21,7 @@
               <p>The main editor template renders all the other sub-templates.</p>
 
             </div>
-            <div class="content"><pre><code class="lang-haml">.main
+            <div class="content"><pre><code class="lang-haml">%main.main
   = require(&quot;./actions&quot;) actions: @actions, issues: @issues
   = require(&quot;./filetree&quot;) @filetree
   -# TODO: Figure out why we can&#39;t just add the notifications view directly
