@@ -21,12 +21,13 @@
               <p>The main editor template renders all the other sub-templates.</p>
 
             </div>
-            <div class="content"><pre><code class="lang-haml">  = require(&quot;./actions&quot;) actions: @actions, issues: @issues, github: @github, repository: @repository
-  .main
-    = require(&quot;./filetree&quot;) @filetree
-    %section.editor
-    -# TODO: Figure out why we can&#39;t just add the notifications view directly
-    = @notifications.view.children[0]</code></pre>
+            <div class="content"><pre><code class="lang-haml">  %div
+    = require(&quot;./actions&quot;) actions: @actions, issues: @issues, github: @github, repository: @repository
+    .main
+      = require(&quot;./filetree&quot;) @filetree
+      %section.editor
+      -# TODO: Figure out why we can&#39;t just add the notifications view directly
+      = @notifications.view.children[0]</code></pre>
 </div>
         </li>
         
