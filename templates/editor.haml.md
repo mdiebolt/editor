@@ -1,8 +1,6 @@
 The main editor template renders all the other sub-templates.
     
-    %div
-      %header
-        = require("./actions") actions: @actions, issues: @issues, github: @github, repository: @repository
+      = require("./actions") actions: @actions, issues: @issues, github: @github, repository: @repository
       .main
         = require("./filetree") @filetree
         %section.editor
