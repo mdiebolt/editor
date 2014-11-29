@@ -22,8 +22,9 @@
 the editor.</p>
 
             </div>
-            <div class="content"><pre><code class="lang-haml">.actions
-  - actions = @actions</code></pre>
+            <div class="content"><pre><code class="lang-haml">%header
+  .actions
+    - actions = @actions</code></pre>
 </div>
         </li>
         
@@ -36,10 +37,10 @@ the editor.</p>
               <p>Render a series of buttons, one for each action.</p>
 
             </div>
-            <div class="content"><pre><code class="lang-haml">  %span
-    - Object.keys(actions).each (name) -&gt;
-      %button(click=actions[name])
-        = name.titleize()</code></pre>
+            <div class="content"><pre><code class="lang-haml">    %span
+      - Object.keys(actions).each (name) -&gt;
+        %button(click=actions[name])
+          = name.titleize()</code></pre>
 </div>
         </li>
         
@@ -52,7 +53,7 @@ the editor.</p>
               <p>The issues selector is also rendered in the actions bar.</p>
 
             </div>
-            <div class="content"><pre><code class="lang-haml">  %select(value=@issues.currentIssue options=@issues.issues)</code></pre>
+            <div class="content"><pre><code class="lang-haml">    %select(value=@issues.currentIssue options=@issues.issues)</code></pre>
 </div>
         </li>
         
