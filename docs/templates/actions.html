@@ -26,6 +26,13 @@ the editor.</p>
   - window.location = github.authorizationUrl(&quot;bc46af967c926ba4ff87&quot;, &quot;gist,repo,user:email&quot;)
 
 %header
+  .repo_info
+    - if repository = @repository()
+      %div
+        = repository.full_name
+        :
+        = repository.branch    
+
   .status
     - github = @github
     - if request = github.lastRequest()
@@ -70,14 +77,7 @@ the editor.</p>
               <p>The issues selector is also rendered in the actions bar.</p>
 
             </div>
-            <div class="content"><pre><code class="lang-haml">    %select(value=@issues.currentIssue options=@issues.issues)
-
-  .repo_info
-    - if repository = @repository
-      %div
-        = repository.full_name
-        :
-        = repository.branch</code></pre>
+            <div class="content"><pre><code class="lang-haml">    %select(value=@issues.currentIssue options=@issues.issues)</code></pre>
 </div>
         </li>
         
