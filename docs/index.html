@@ -415,13 +415,14 @@ issues?.currentIssue.observe (issue) -&gt;
     changeBranch repository().defaultBranch()
 
 $root
-  .append require(<span class="string">"./templates/editor"</span>)(
-    filetree: filetree
+  .append require(<span class="string">"./templates/actions"</span>)(
     actions: actions
-    notifications: notifications
     issues: issues
     github: github
     repository: repository
+  ).append require(<span class="string">"./templates/editor"</span>)(
+    filetree: filetree
+    notifications: notifications
   )
 
 window.<span class="function"><span class="title">onbeforeunload</span></span> = -&gt;
