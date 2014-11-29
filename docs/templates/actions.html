@@ -22,7 +22,24 @@
 the editor.</p>
 
             </div>
-            <div class="content"><pre><code class="lang-haml">%header
+            <div class="content"><pre><code class="lang-haml">- redirect = -&gt;
+  - window.location = github.authorizationUrl(&quot;bc46af967c926ba4ff87&quot;, &quot;gist,repo,user:email&quot;)
+
+%header
+  .status
+    - github = @github
+    - if request = github.lastRequest()
+      %div
+        - if request.getAllResponseHeaders and request.getAllResponseHeaders().match(/X-RateLimit-Limit: 5000/)
+          Authenticated Scopes:
+          = request.getResponseHeader(&quot;X-OAuth-Scopes&quot;)
+          %br
+          Rate Limit Remaining:
+          = request.getResponseHeader(&quot;X-RateLimit-Remaining&quot;)
+          = &quot; / 5000&quot;
+        - else
+          %button(click=redirect) Auth
+
   .actions
     - actions = @actions</code></pre>
 </div>
@@ -53,7 +70,14 @@ the editor.</p>
               <p>The issues selector is also rendered in the actions bar.</p>
 
             </div>
-            <div class="content"><pre><code class="lang-haml">    %select(value=@issues.currentIssue options=@issues.issues)</code></pre>
+            <div class="content"><pre><code class="lang-haml">    %select(value=@issues.currentIssue options=@issues.issues)
+
+  .repo_info
+    - if repository = @repository
+      %div
+        = repository.full_name
+        :
+        = repository.branch</code></pre>
 </div>
         </li>
         
