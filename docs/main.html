@@ -345,7 +345,7 @@ hotReload = (-&gt;
 filetree.selectedFile.observe (file) -&gt;
   <span class="keyword">return</span> <span class="keyword">if</span> file.binary?()
 
-  root = $root.children(<span class="string">".main"</span>)
+  root = $root.find(<span class="string">".editor"</span>)
   root.find(<span class="string">"iframe"</span>).hide()
 
   <span class="keyword">if</span> file.editor
