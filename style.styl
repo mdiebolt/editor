@@ -14,6 +14,11 @@ body
   box-sizing: border-box
   height: 100%
 
+  display: flex
+  flex: 1
+  flex-flow: row wrap
+  align-content: flex-start
+
   iframe
     border: none
     display: block
@@ -23,14 +28,10 @@ body
 .filetree
   margin: 0
   padding: 0
-  width: 200px
   overflow-x: hidden
   overflow-y: auto
-  position: absolute
-  left: 0
-  bottom: 0
-  top: 40px
-  z-index: 2
+  min-width: 200px
+  flex: 0 0 15%
 
   li
     cursor: pointer
@@ -87,10 +88,10 @@ body
     box-sizing: border-box
     border-top: 1px solid black
     color: red
-  
+
   .notices, .errors
     margin: 0
-  
+
   .notices
     padding: 0.5em
 
