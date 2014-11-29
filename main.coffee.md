@@ -343,13 +343,14 @@ Templates
         changeBranch repository().defaultBranch()
 
     $root
-      .append require("./templates/editor")(
-        filetree: filetree
+      .append require("./templates/actions")(
         actions: actions
-        notifications: notifications
         issues: issues
         github: github
         repository: repository
+      ).append require("./templates/editor")(
+        filetree: filetree
+        notifications: notifications
       )
 
     window.onbeforeunload = ->
