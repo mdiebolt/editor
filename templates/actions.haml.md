@@ -5,6 +5,13 @@ the editor.
       - window.location = github.authorizationUrl("bc46af967c926ba4ff87", "gist,repo,user:email")
 
     %header
+      .repo_info
+        - if repository = @repository()
+          %div
+            = repository.full_name
+            :
+            = repository.branch    
+    
       .status
         - github = @github
         - if request = github.lastRequest()
@@ -32,10 +39,3 @@ Render a series of buttons, one for each action.
 The issues selector is also rendered in the actions bar.
 
         %select(value=@issues.currentIssue options=@issues.issues)
-
-      .repo_info
-        - if repository = @repository
-          %div
-            = repository.full_name
-            :
-            = repository.branch
