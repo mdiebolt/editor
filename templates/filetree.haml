@@ -5,5 +5,4 @@
     - select = (e) -> selectedFile(file) if e.target.nodeName is 'LI'
     %li(click=select)= file.displayName
       - remove = -> files.remove(file) if confirm("Delete #{file.path()}?")
-      .delete(click=remove)
-        X
+      .delete(click=remove) x
