@@ -342,13 +342,14 @@ Templates
 
         changeBranch repository().defaultBranch()
 
-    $root
-      .append require("./templates/actions")(
+    $root.append require("./templates/actions")(
         actions: actions
         issues: issues
         github: github
         repository: repository
-      ).append require("./templates/editor")(
+      )
+      
+    $root.append require("./templates/editor")(
         filetree: filetree
         notifications: notifications
       )
