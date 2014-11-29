@@ -25,15 +25,16 @@ the editor.</p>
             <div class="content"><pre><code class="lang-haml">- redirect = -&gt;
   - window.location = github.authorizationUrl(&quot;bc46af967c926ba4ff87&quot;, &quot;gist,repo,user:email&quot;)
 
-.repo_info
-  - if repository = @repository()
-    %div
-      = repository.full_name
-      :
-      = repository.branch    
+%header
+  .repo_info
+    - if repository = @repository()
+      %div
+        = repository.full_name
+        :
+        = repository.branch    
 
-.actions
-  - actions = @actions</code></pre>
+  .actions
+    - actions = @actions</code></pre>
 </div>
         </li>
         
@@ -46,10 +47,10 @@ the editor.</p>
               <p>Render a series of buttons, one for each action.</p>
 
             </div>
-            <div class="content"><pre><code class="lang-haml">  %span
-    - Object.keys(actions).each (name) -&gt;
-      %button(click=actions[name])
-        = name.titleize()</code></pre>
+            <div class="content"><pre><code class="lang-haml">    %span
+      - Object.keys(actions).each (name) -&gt;
+        %button(click=actions[name])
+          = name.titleize()</code></pre>
 </div>
         </li>
         
@@ -62,21 +63,21 @@ the editor.</p>
               <p>The issues selector is also rendered in the actions bar.</p>
 
             </div>
-            <div class="content"><pre><code class="lang-haml">  %select(value=@issues.currentIssue options=@issues.issues)
+            <div class="content"><pre><code class="lang-haml">    %select(value=@issues.currentIssue options=@issues.issues)
 
-.status
-  - github = @github
-  - if request = github.lastRequest()
-    %div
-      - if request.getAllResponseHeaders and request.getAllResponseHeaders().match(/X-RateLimit-Limit: 5000/)
-        Authenticated Scopes:
-        = request.getResponseHeader(&quot;X-OAuth-Scopes&quot;)
-        %br
-        Rate Limit Remaining:
-        = request.getResponseHeader(&quot;X-RateLimit-Remaining&quot;)
-        = &quot; / 5000&quot;
-      - else
-        %button(click=redirect) Auth</code></pre>
+  .status
+    - github = @github
+    - if request = github.lastRequest()
+      %div
+        - if request.getAllResponseHeaders and request.getAllResponseHeaders().match(/X-RateLimit-Limit: 5000/)
+          Authenticated Scopes:
+          = request.getResponseHeader(&quot;X-OAuth-Scopes&quot;)
+          %br
+          Rate Limit Remaining:
+          = request.getResponseHeader(&quot;X-RateLimit-Remaining&quot;)
+          = &quot; / 5000&quot;
+        - else
+          %button(click=redirect) Auth</code></pre>
 </div>
         </li>
         
