@@ -414,13 +414,14 @@ issues?.currentIssue.observe (issue) -&gt;
 
     changeBranch repository().defaultBranch()
 
-$root
-  .append require(<span class="string">"./templates/actions"</span>)(
+$root.append require(<span class="string">"./templates/actions"</span>)(
     actions: actions
     issues: issues
     github: github
     repository: repository
-  ).append require(<span class="string">"./templates/editor"</span>)(
+  )
+
+$root.append require(<span class="string">"./templates/editor"</span>)(
     filetree: filetree
     notifications: notifications
   )
