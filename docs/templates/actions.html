@@ -33,20 +33,6 @@ the editor.</p>
         :
         = repository.branch    
 
-  .status
-    - github = @github
-    - if request = github.lastRequest()
-      %div
-        - if request.getAllResponseHeaders and request.getAllResponseHeaders().match(/X-RateLimit-Limit: 5000/)
-          Authenticated Scopes:
-          = request.getResponseHeader(&quot;X-OAuth-Scopes&quot;)
-          %br
-          Rate Limit Remaining:
-          = request.getResponseHeader(&quot;X-RateLimit-Remaining&quot;)
-          = &quot; / 5000&quot;
-        - else
-          %button(click=redirect) Auth
-
   .actions
     - actions = @actions</code></pre>
 </div>
@@ -77,7 +63,21 @@ the editor.</p>
               <p>The issues selector is also rendered in the actions bar.</p>
 
             </div>
-            <div class="content"><pre><code class="lang-haml">    %select(value=@issues.currentIssue options=@issues.issues)</code></pre>
+            <div class="content"><pre><code class="lang-haml">    %select(value=@issues.currentIssue options=@issues.issues)
+
+  .status
+    - github = @github
+    - if request = github.lastRequest()
+      %div
+        - if request.getAllResponseHeaders and request.getAllResponseHeaders().match(/X-RateLimit-Limit: 5000/)
+          Authenticated Scopes:
+          = request.getResponseHeader(&quot;X-OAuth-Scopes&quot;)
+          %br
+          Rate Limit Remaining:
+          = request.getResponseHeader(&quot;X-RateLimit-Remaining&quot;)
+          = &quot; / 5000&quot;
+        - else
+          %button(click=redirect) Auth</code></pre>
 </div>
         </li>
         
